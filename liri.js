@@ -1,37 +1,77 @@
 require("dotenv").config();
 var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
+var axios = require("axios");
+var moment = require("moment");
+var fs = require("fs");
 
-var userInput = process.argv;
-console.log(userInput);
+var inputString = process.argv;
 
-var song = "";
+var command = process.argv[2];
+var arg2 = process.argv[3]
 
-for (var i = 2; i < userInput.length; i++) {
-    console.log(userInput[i]);
-    song = song + " " + userInput[i];
-};
+var userInput;
+var concert;
+var movie;
+var doIt;
+start(command, arg2);
 
-console.log(song);
+function start(command, arg2) {
+    switch (command) {
+        case "spotify-this-song":
+            spotifyThisSong(arg2);
+            // userInput = command + JSON.stringify(song)
+            break;
+
+        case "concert-this":
+            concertThis(arg2);
+            // userInput = command + JSON.stringify(concert);
+            break;
+
+        case "movie-this":
+            movieThis(arg2);
+            // userInput = command + JSON.stringify(movie);
+            break;
+
+        case "do-what-it-says":
+            doWhatItSays();
+            // userInput = command + JSON.stringify(doIt);
+            break;
+
+        default:
+            console.log("Not a recognized command");
+    }
+
+}
+
+//console.log(userInput);
 
 var spotify = new Spotify(keys.spotify);
 
-spotify
-    .search({
-        type: "track",
-        query: song
-    })
-    .then(function (response) {
-        for (a = 1; a < 5; a++)
-            console.log(response.items.artists.name);
-        // console.log("Artist: " + data.tracks.items.artists.name + "\n" + "Song: " + data.tracks.items.external_urls.name + "\n" + "Link: " + data.tracks.items.external_urls.preview_url + "\n" + "Album: " + data.items.album.name + "\n");
-        // console.log(JSON.stringify(response, null, 2));
-        // console.log();
+function spotifyThisSong(songName) {
 
-    })
-    .catch(function (err) {
-        console.log(err);
-    });
+    spotify
+        .search({
+            type: "track",
+            query: songName
+        })
+        .then(function (response) {
+            var songs = response.tracks.items;
+            for (var a = 0; a < 5; a++) {
+
+                // console.log(JSON.stringify(response, null, 2));
+                console.log("song name: " + songs[a].name);
+                console.log("album: " + songs[a].album.name);
+                console.log("preview url : " + songs[a].preview_url);
+                console.log("artist name: " + songs[a].artists[0].name);
+                console.log("--------------------------------");
+                // console.log();
+            }
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
 
 //***/concert-this***
 //  node liri.js concert-this <artist/band name here>
@@ -68,3 +108,12 @@ spotify
 //  Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 //(1) It should run spotify-this-song for "I Want It That Way," as follows the text in random.txt.
 //(2) Edit the text in random.txt to test out the feature for movie-this and concert-this.
+function doWhatItSays() {
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        console.log("data: " + data);
+        var dataArr = data.split(",");
+        console.log(dataArr);
+        start(dataArr[0], dataArr[1]);
+
+    })
+}
