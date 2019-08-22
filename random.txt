@@ -1,1 +1,24 @@
 spotify-this-song,"I Want it That Way"
+
+// Example:
+// function search({
+//     type: 'artist OR album OR track',
+//     query: 'My search query',
+//     limit: 20
+// }, callback);
+
+// var spotify = new Spotify({
+//     id: a591aa4a70f54e7180ac8d4ad2b4591a,
+//     secret: a70dcdb884e84ccd802709c12bc12fdf
+// });
+
+// spotify.search({
+//     type: 'track',
+//     query: 'All the Small Things'
+// }, function (err, data) {
+//     if (err) {
+//         return console.log('Error occurred: ' + err);
+//     }
+
+//     console.log(data);
+// });

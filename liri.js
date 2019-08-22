@@ -1,6 +1,37 @@
 require("dotenv").config();
 var keys = require("./keys.js");
+var Spotify = require('node-spotify-api');
+
+var userInput = process.argv;
+console.log(userInput);
+
+var song = "";
+
+for (var i = 2; i < userInput.length; i++) {
+    console.log(userInput[i]);
+    song = song + " " + userInput[i];
+};
+
+console.log(song);
+
 var spotify = new Spotify(keys.spotify);
+
+spotify
+    .search({
+        type: "track",
+        query: song
+    })
+    .then(function (response) {
+        for (a = 1; a < 5; a++)
+            console.log(response.items.artists.name);
+        // console.log("Artist: " + data.tracks.items.artists.name + "\n" + "Song: " + data.tracks.items.external_urls.name + "\n" + "Link: " + data.tracks.items.external_urls.preview_url + "\n" + "Album: " + data.items.album.name + "\n");
+        // console.log(JSON.stringify(response, null, 2));
+        // console.log();
+
+    })
+    .catch(function (err) {
+        console.log(err);
+    });
 
 //***/concert-this***
 //  node liri.js concert-this <artist/band name here>
