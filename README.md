@@ -122,20 +122,17 @@ To run the app, simply use the `node liri.js [command-here]` format discussed ab
 
 # Screenshots
 
-
-### Twitter API
-Running the command `node liri.js my-tweets` will return my 20 most recent tweets.
-![Twitter Command](/screenshots/twitter.png)
-
-  - Note that I have only tweeted 3 times ever, so that is why only 3 tweets are shown.
-
-
 ### Spotify API
 Running the command `node liri.js spotify-this-song My Name Is Jonas` will return the track info from Spotify.
 ![Spotify Command](/screenshots/spotify.png)  
 
   - Note that running `node liri.js spotify-this-song "My Name Is Jonas"` will produce the same result.
 
+### OMDB API
+Running the command `node liri.js movie-this` will return my 20 most recent tweets.
+![Twitter Command](/screenshots/twitter.png)
+
+  - Note that I have only tweeted 3 times ever, so that is why only 3 tweets are shown.
 
 ### IMDb API
 Running the command `node liri.js movie-this Pulp Fiction` will return the movie info from IMDb.

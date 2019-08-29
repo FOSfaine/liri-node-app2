@@ -39,8 +39,6 @@ function start(command, arg2) {
     }
 }
 
-
-
 function spotifyThisSong(songName) {
     spotify
         .search({
@@ -70,14 +68,15 @@ function concertThis(artist) {
         console.log("Upcoming shows for " + artist + ":");
         for (var a = 0; a < songsData.length; a++) {
             var res = songsData[a];
-            console.log("Venue:" + res.venue.name +
-                " " + "in " + " " +
+            console.log("Venue: " + res.venue.name +
+                " " + "in" + " " +
                 res.venue.city +
                 " " +
                 (res.venue.region) +
                 " " +
                 moment(res.datetime).format("MM/DD/YYYY"));
-            console.log("--------------------------------");
+            console.log("----------------------------------------------------------------------------");
+            console.log();
         }
     });
 }
@@ -104,10 +103,9 @@ function movieThis(movieName) {
         console.log("Plot: " + res.Plot);
         //Actors in the movie.
         console.log("Actors: " + res.Actors);
-        console.log("--------------------------------");
+        console.log("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     });
 }
-
 
 function doWhatItSays() {
     fs.readFile("random.txt", "utf8", function (err, data) {
