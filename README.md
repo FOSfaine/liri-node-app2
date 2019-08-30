@@ -38,6 +38,6 @@ Running the command `node liri.js movie-this "Top Gun" ` will return the movie i
 Running the command `node liri.js do-what-it-says` will read a command out of the `random.txt` file and perform it.  
 ![DoWhatItSays Command](/assets/DoWhatItSays.png)  
 
-![RandomText Command](/assetss/RandomText.png)  
+![RandomText Command](/assets/RandomText.png)
   - The `random.txt` file contians the command to Spotify the song "I Want It That Way". The `random.txt` file can be changed to perform any of the 3 commands listed above.
 See screenshots for examples of what information returns from each command.
