@@ -32,7 +32,7 @@ Running the command `node liri.js concert-this "Jason Mraz" ` will return the mo
 
 ### OMDB API
 Running the command `node liri.js movie-this "Top Gun" ` will return the movie info from OMDB.
-![MovieThis Command](/assetss/MovieThisTopGun.png)
+![MovieThis Command](/assets/MovieThisTopGun.png)
 
 ### Node `fs` file reader
 Running the command `node liri.js do-what-it-says` will read a command out of the `random.txt` file and perform it.  
