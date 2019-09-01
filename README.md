@@ -2,9 +2,9 @@
 
 # Project Title
 
-This app is a "Siri"-type computer assistant to return information for three types of queries: music (songs), concerts, and movies.
+This app is a "Siri"-type computer assistant programmed to return information for three types of queries: music (songs) from Spotify, concerts from Bandsintown, and movies from OMDB.
 
-Using the `node liri.js [command-here]` command-line syntaz, the user is able to make requests for information from the spotify, bandsintown, and omdb api's.
+Using the `node liri.js [command-here]` command-line syntax, the user is able to make requests for information from the Spotify, Bandsintown, and Omdb api's.
  - `spotify-this-song [song-title-here]` returns information about artist, album, and preview URL for the song requested.
  - `concert-this [concert-title-here]` returns the concert information (venue, location, and dates) for the artist requested.
  - `movie-this [movie-title-here]` returns the year, ratings, plot summary, and reviews for the movie requested.
@@ -38,6 +38,8 @@ Running the command `node liri.js movie-this "Top Gun" ` will return the movie i
 Running the command `node liri.js do-what-it-says` will read a command out of the `random.txt` file and perform it.  
 ![DoWhatItSays Command](/assets/DoWhatItSays.png)  
 
+The `random.txt` file contians the command to Spotify the song "I Want It That Way". 
+The `random.txt` file can be changed to perform any of the 3 commands listed above.
 ![RandomText Command](/assets/RandomText.png)
-  - The `random.txt` file contians the command to Spotify the song "I Want It That Way". The `random.txt` file can be changed to perform any of the 3 commands listed above.
-See screenshots for examples of what information returns from each command.
+
+The site for ths app is published at: https://fosfaine.github.io/liri-node-app2/
